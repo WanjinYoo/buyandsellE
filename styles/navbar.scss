@@ -1,0 +1,105 @@
+header.navbar_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  // height: 5em;
+  padding:10px;
+  font-size: x-large;
+  background-image: linear-gradient(to left, #6BD1AA, #58D0BE, #50CDCF, #57CADC, #69C5E4, #70C5E8, #77C5EB, #7EC5EE, #77CAF2, #70CFF6, #68D4F9, #5FD9FB);
+  width:100%;
+  margin-bottom: 40px;
+  nav.navbar_features {
+    display: flex;
+    // flex-direction: row;
+    width: 100%;
+
+    .logout{
+      margin-left: auto;
+      align-self: center;
+      .logoutButton {
+        text-decoration: none;
+        justify-content: space-between;
+        background-color: white;
+        color: black;
+        font-family: 'Montserrat', sans-serif;
+        border-color: black;
+        border-radius: 5px;
+        font-size: 15px;
+        padding: 10px;
+    }
+    }
+
+
+
+    h3{
+      align-self: center;
+       .logo{
+      color: white;
+      text-shadow: 2px 1px black;
+      text-decoration: none;
+      font-family: 'Quicksand', sans-serif;
+      margin-right:20px;
+      font-size: 35px;
+    }
+    }
+
+    a.page_title {
+      color: black;
+      text-decoration: none;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 18px;
+      align-self: center;
+      margin-left: 40px;
+    }
+    a.page_title:hover{
+      text-decoration: underline;
+    }
+    div.login_register {
+      display: flex;
+      margin-left: auto;
+      // justify-content: space-between;
+
+      form.input_form {
+        display: flex;
+        flex-direction: row;
+        .login_textbox {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          input {
+            color: black;
+            font-family: 'Quicksand', sans-serif;
+            background-color: rgba(255, 240, 245, 0.8);
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            border-color: black;
+            font-size: 15px;
+            width: 250px;
+            height: fit-content;
+            padding: 5px;
+            margin-left: 5px;
+            margin-bottom: 5px
+          }
+        }
+      }
+
+      div.button_form {
+        align-self: center;
+        margin-left: 5px;
+        .nav_buttons {
+          text-decoration: none;
+          justify-content: space-between;
+          background-color: white;
+          color: black;
+          font-family: 'Montserrat', sans-serif;
+          border-color: black;
+          border-radius: 5px;
+          font-size: 15px;
+          padding: 10px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="/styles/results.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Learners | Resource-Results</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRv+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/7b337e3892.js" crossorigin="anonymous"></script>
+    <script  type="text/javascript" src="/scripts/client.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script language="JavaScript" type="text/javascript" src="/scripts/client.js"></script>
+  </head>
+  <body>
+
+    <div class="main">
+      <div class="header">
+        <h2>Learn About... <%= category %></h2>
+        <p>Not what you were looking for?</p>
+        <button class="search" >Search Again</button>
+        <form id='searchForm' method="POST" action="/">
+          <select class="dropdown" name="categories">
+            <option disabled selected value='pick'> ---- category ---- </option>
+            <option value="Automotive">Automotive</options>
+            <option value ="Health & Personal Care">Health & Personal Care</option>
+            <option value="Hobbies & Crafts">Hobbies & Crafts</options>
+            <option value ="Technology">Technology</option>
+            <option value="Home Improvement">Home Improvement</option>
+            <option value="Cooking & Baking">Cooking & Baking</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Fitness & Wellness">Fitness & Wellness</option>
+            <option value="Finance & Business">Finance & Business</option>
+            <option value ="Education & Communication">EducationCommunication</option>
+          </select>
+          <button type ="submit">Teach Me</button>
+        </form>
+      </div>
+      <% for (let resource of resources) { %>
+      <div class="result">
+        <div class="thumbnail">
+          <img src="https://miro.medium.com/max/1200/1*mk1-6aYaf_Bes1E3Imhc0A.jpeg">
+        </div>
+        <div class= "description resource">
+          <div class="info">
+            <p class="title"><a href="/resources/<%= resource.id %>"><%= resource.title %></a></p>
+            <p><%= resource.description %></p>
+            <p class = 'rating'>rating: <span><%= (Math.floor(resource.rating * 100) /100 ).toFixed(2) %></span></p>
+          </div>
+          <div class="result-footer">
+            <p><%= moment(resource.created_at).fromNow() %><p>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>

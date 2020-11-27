@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles/editProfile.css">
+  <title>Leaners | Edit Profile</title>
+</head>
+<body>
+  <%- include('partials/navbar_logged_out') %>
+  <div class="main">
+  <div class="profile">
+  <h1>EDIT PROFILE!</h1>
+  <form method="POST" action="/users/<%= username %>/edit">
+    <div class="names">
+    <label for="Full Name:">Full Name:</label><br>
+    <input class="form-control" type="text" name="fullName" value="<%= user.full_name %>"><br>
+    </div>
+    <div class="names">
+    <label for="email">EMAIL:</label><br>
+    <input class="form-control" type="email" name="email" value="<%= user.email %>"><br>
+    </div>
+    <div class="names">
+    <label for="password">Password:</label><br>
+    <input class="form-control" type="password" name="password"  required placeholder="password"><br>
+    </div>
+    <div class="names">
+    <label for="username">username</label><br>
+    <input class="form-control" type="text" name="username" value="<%= username %>"><br>
+    </div>
+    <div class="names">
+    <button type="submit"> Update </button>
+    </div>
+  </form>
+  </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/resource_new.css" type="text/css" />
+    <!-- Font  -->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <!-- Javascript -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <div>
+     <%- include('partials/navbar_logged_out') %>
+    </div>
+
+    <main class="resource_new">
+      <form method="POST" action="/resources/create">
+        <div class="form_input">
+          <h2>Create a new resource</h2>
+        <div>
+        <div class="labelwrapper">
+          <label for="title"> Title:</label>
+          <input class="new_resource_textbox" type="text" name="title" required placeholder="Title"></input>
+        </div>
+        <div class="labelwrapper">
+          <label for="description"> Description:</label>
+          <textarea class="new_resource_textbox" type="text" name="description" required placeholder="Description"></textarea>
+        </div>
+        <div class="labelwrapper">
+          <label for="Website"> Website Link:</label>
+          <input class="new_resource_textbox" type="text" name="url" required placeholder="Link"></input>
+        </div>
+        <div class="labelwrapper">
+          <label for="Category"> Category:</label>
+          <select class="new_resource_textbox" name="category" required>
+            <option value="Category">Category</option>
+            <option value="Automotive">Automotive</options>
+            <option value ="Health & Personal Care">Health & Personal Care</option>
+            <option value="Hobbies & Crafts">Hobbies & Crafts</options>
+            <option value ="Technology">Technology</option>
+            <option value="Home Improvement">Home Improvement</option>
+            <option value="Cooking & Baking">Cooking & Baking</option>
+            <option value="Lifestyle">Lifestyle</option>
+            <option value="Fitness & Wellness">Fitness & Wellness</option>
+            <option value="Finance & Business">Finance & Business</option>
+            <option value ="Education & Communication">Education & Communication</option>
+          </select>
+        </div>
+        <div class="labelwrapper">
+          <label for="keyword"> Keywords:</label>
+          <input class="new_resource_textbox" type="text" name="keywords" required placeholder="Keywords"></input>
+        </div>
+        <button type="submit">Submit</button>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

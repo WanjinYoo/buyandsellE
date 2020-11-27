@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Home Page</title>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/resource.css" type="text/css" />
+  <!-- Font  -->
+  <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+
+  <!-- Javascript -->
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/comments.js"></script>
+  <script type="text/javascript" src="/scripts/likes.js"></script>
+  <script type="text/javascript" src="/scripts/rating.js"></script>
+
+  <!-- Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+    <!-- Star Rating Links -->
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+
+</head>
+
+<body>
+  <%- include('partials/navbar_logged_out') %>
+  <main>
+    <section class="resource_info">
+      <h2 class="resource_info_title"> <%= sResource.title %> </h2>
+
+      <% if (sResource.rating !== null) { %>
+        <span class="rating_resource_info">Rating:  <%= Math.floor(sResource.rating) %></span>
+      <% } %>
+      <% if (sResource.likes !== '0') { %>
+        <span class="rating_resource_info">Likes: <%= sResource.likes %></span>
+      <% } %>
+
+      <a href= <%= sResource.url %> >
+        <img class="clickable_image" src="https://www.wikihow.com/images/9/98/Eat-Sushi-Step-16.jpg"></img>
+      </a>
+      <span class="resource_info_description"><%= sResource.description %></span>
+      <div class="bookmark_like">
+        <!-- <i class="material-icons" id="pin">bookmark</i> -->
+        <div class="like">
+          <label>Like This Resource:</label>
+        <i class="material-icons" id="heart">favorite</i>
+      </div>
+        <div class="rate">
+          <label>Rate This Resource:</Label>
+          <input type="radio" id="star5" name="rate" value="5" />
+          <label for="star5" title="text">5 stars</label>
+          <input type="radio" id="star4" name="rate" value="4" />
+          <label for="star4" title="text">4 stars</label>
+          <input type="radio" id="star3" name="rate" value="3" />
+          <label for="star3" title="text">3 stars</label>
+          <input type="radio" id="star2" name="rate" value="2" />
+          <label for="star2" title="text">2 stars</label>
+          <input type="radio" id="star1" name="rate" value="1" />
+          <label for="star1" title="text">1 star</label>
+        </div>
+      </div>
+    </section>
+
+    <div class="comment_sections">
+      <section class="resource_info_comments">
+        <article class="comment">
+          <header>
+            <h2 class="comments_label">Comments</h2>
+            <div id="comment_container">
+            <ul id='comment-list'>
+              <% for (let comment of comments) { %>
+                <i class="material-icons">face</i> @ <span class="profile_username"> <%= comment.username %> </span> <span class="profile_comment"> <%= comment.comment %> </span>
+              <% } %>
+              </ul>
+            </div>
+          </header>
+          <span class="tweet-content"></span>
+            <footer class="date-icon">
+          <span class="date"></span>
+          </footer>
+        </article>
+      </section>
+
+      <section class="resource_info_write_comment">
+        <form id="frm-comment" method="POST" action="/resources/:resource_id">
+          <h2 class="add_comment">Add A Comment</h2>
+          <div class="textarea_button">
+            <textarea name="commentContent" id="comment-content"></textarea>
+            <input id="resource-id" type="hidden" value="<%= sResource.id %>" />
+            <input id="resource-username" type="hidden" value="<%= username %>" />
+            <button type="submit">Comment</button>
+            <span id="error"></span>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

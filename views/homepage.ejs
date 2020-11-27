@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Home Page</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/homepage.css" type="text/css" />
+
+    <!-- Font  -->
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Quicksand:300,400,500,600,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+    <!-- Javascript -->
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body class="homepage">
+    <%- include('partials/navbar_logged_out') %>
+    <main>
+      <section class="search_box">
+        <form method="POST" action="/">
+          <h1>What do you want to learn about today?</h1>
+          <div class="categoryWrapper">
+            <select class="dropdown" name ="categories"  >
+                <option disabled selected value='pick'> ---- category ---- </option>
+                <option value="Automotive">Automotive</options>
+                <option value ="Health & Personal Care">Health & Personal Care</option>
+                <option value="Hobbies & Crafts">Hobbies & Crafts</options>
+                <option value ="Technology">Technology</option>
+                <option value="Home Improvement">Home Improvement</option>
+                <option value="Cooking & Baking">Cooking & Baking</option>
+                <option value="Lifestyle">Lifestyle</option>
+                <option value="Fitness & Wellness">Fitness & Wellness</option>
+                <option value="Finance & Business">Finance & Business</option>
+                <option value ="Education & Communication">Education & Communication</option>
+            </select>
+            <button type ="submit">Teach Me</button>
+            </div>
+        </form>
+        <div class="search_anchors">
+          <a class="search_anchors" href="/resources/categories/trending">Trending</a>
+          <a class="search_anchors" href="/resources/categories/surprise">Surprise Me</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

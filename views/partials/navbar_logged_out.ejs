@@ -1,0 +1,30 @@
+<head>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/styles/navbar.css" type="text/css" />
+</head>
+<header class="navbar_header">
+  <nav class="navbar_features">
+    <h3><a href="/" class="logo" >Learners</a></h3>
+    <a href="/resources/create" class="page_title">Create New Resource</a>
+    <a href="/resources/categories/trending" class="page_title">Trending</a>
+    <a href="/register" class="page_title">Register</a>
+    <% if(user){ %>
+      <form method ='POST' action= "/logout" class='logout'>
+        <button  class="logoutButton" type="submit">logout</button>
+      </form>
+    <% } else if(!user) { %>
+      <div class="login_register">
+        <form class="input_form" method="POST" action="/login">
+          <div class= "login_textbox">
+            <input  placeholder="Email" name="email" type="email" required>
+            <input  placeholder="Password" name="password" type="password" required>
+          </div>
+          <div class = button_form>
+            <button type="submit" class="nav_buttons">Login</button>
+          </div>
+        </form>
+     <% } %>
+
+    </div>
+  </nav>
+</header>
